@@ -9,6 +9,11 @@
 if (length(ls()) == 0 || !any(grepl("NEI", ls()))) {
         #Prevents waiting when re-running code
         NEI <- readRDS("./summarySCC_PM25.rds")
+
+        #There were two outliers for Emissions, 646952.0 and 112619.8
+        #by investigating Source Classification Code (SCC) I found these
+        #readings were both from Wildfires as such the high readings
+        #make sense and are kept in the data set
 }
 
 #Open png & set dimensions
