@@ -6,7 +6,7 @@
 #Plan: Create a simple line chart with the total emissions on the y-axis
 #       and year on the x-axis
 
-if (length(ls()) == 0 || !grepl("NEI", ls())) {
+if (length(ls()) == 0 || !any(grepl("NEI", ls()))) {
         #Prevents waiting when re-running code
         NEI <- readRDS("./summarySCC_PM25.rds")
 }
