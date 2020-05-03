@@ -39,12 +39,14 @@ condenced <- condenced %>%
 condenced <- condenced %>%
         group_by(year, City, Sector)
 
+#Get summary of totals
 totals <- condenced %>% summarise(total = sum(Emissions)) %>%
         arrange(year, City, Sector)
 
+#Store first year totals
 year1Vals <- totals$total[1:8]
 
-
+#Subtract each of the totals by it's related first year total
 totals <- totals %>% ungroup() %>%
         mutate(Change = total - rep(year1Vals, times = 4)) %>%
         unite("City_Sector", City, Sector, remove = FALSE)
