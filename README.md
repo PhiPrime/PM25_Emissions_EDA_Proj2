@@ -31,3 +31,4 @@ The following questions are to be addressed in this exploratory analysis. For ea
                 - *non-road*  
         + *year*: The year the reading was recorded  
 * *Source_Classification_Code.rds* - This file provides a mapping from the SCC digit strings in the Emissions table to the actual name of the PM2.5 source. The sources are categorized in a few different ways from more general to more specific. For example, source “10100101” is known as “Ext Comb /Electric Gen /Anthracite Coal /Pulverized Coal”.  
+* *plot****X****.R* & *plot****X****.png* - The R code and png output it produces that addresses question number **X**  
