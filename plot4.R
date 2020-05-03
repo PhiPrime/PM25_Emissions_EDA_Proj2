@@ -25,7 +25,7 @@ coalNames <- scc[is.element(scc$EI.Sector, coalNames),]$SCC
 coal <- filter(NEI, is.element(SCC, coalNames))
 
 #Create a log-based Emission reading and account for 0s
-coal <- mutate(coal, log = ifelse(Emissions==0, 0, log10(Emissions)))
+coal <- mutate(coal, log = ifelse(Emissions==0, NaN, log10(Emissions)))
 
 #Creating pallete
 library(RColorBrewer)
@@ -42,7 +42,9 @@ plot +
         ylab(expression('log'[10]*'(Weight in U. S. Tons)')) +
         scale_y_continuous(n.breaks = 7) +
         ggtitle(expression(
-        'Distribution of PM'[2.5]*' Attributed to Coal Combustion for Each Year'))
+        'Distribution of PM'[2.5]*
+                ' Attributed to Coal Combustion for Each Year')) +
+        labs(caption = "Emissions equal to 0 are not represented on this plot")
 
 #Close png
 dev.off()
